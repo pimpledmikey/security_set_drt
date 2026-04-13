@@ -1,6 +1,19 @@
+<div align="center">
+
 # security_set_drt
 
-Proyecto para el control de accesos y recepción de paquetes/visitas, compuesto por una aplicación móvil Flutter y una API/administración en PHP (Scriptcase).
+### Sistema de Control de Acceso y Asistencia Empresarial
+
+<p>
+	<img src="https://img.shields.io/badge/Flutter-3.0%2B-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter 3.0+" />
+	<img src="https://img.shields.io/badge/Dart-3.0%2B-0175C2?style=for-the-badge&logo=dart&logoColor=white" alt="Dart 3.0+" />
+	<img src="https://img.shields.io/badge/iOS-14%2B-000000?style=for-the-badge&logo=apple&logoColor=white" alt="iOS 14+" />
+	<img src="https://img.shields.io/badge/Android-6.0%2B-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Android 6.0+" />
+</p>
+
+</div>
+
+Proyecto para el control de accesos, asistencia, visitas, paquetes y recolecciones, compuesto por una aplicación móvil Flutter y una API/administración en PHP con Scriptcase.
 
 ## Descripción
 
@@ -70,21 +83,13 @@ Si quieres contribuir:
 
 Miguel Avila Requena — perfil: https://github.com/pimpledmikey
 
-Gracias por revisar el proyecto.
-
-Siguientes opciones (puedo implementarlas si lo deseas):
-
-- **Agregar un logo profesional:** puedo replicar el estilo y tamaño del logo usado en https://github.com/pimpledmikey/Nexus-app-android-flutter y añadir una versión Lottie/PNG en `flutter_app/assets/` para que la app muestre un logo coherente en splash y encabezados.
-
 ## Base de datos y logs
 
-Se recomienda mantener los scripts SQL dentro de `database/` y conservar la estructura de tablas de auditoría y logs (p. ej. `ra_internal_alerts`). Mantener la base de datos versionada permite:
+Los scripts SQL se mantienen dentro de `database/` junto con la estructura de tablas de auditoría y logs (p. ej. `ra_internal_alerts`). Mantener la base de datos versionada permite:
 
 - Restaurar estados en despliegues.
 - Auditar eventos importantes (entradas, notificaciones, errores).
 - Facilitar migraciones controladas (ALTERs con versiones).
-
-Si prefieres, puedo mantener los scripts tal cual y añadir un breve README en `database/` con instrucciones de import y backup.
 
 ## Integración: Flutter ↔ Scriptcase ↔ IA
 
@@ -93,7 +98,5 @@ Breve explicación técnica de la integración actual:
 - La app Flutter actúa como cliente móvil y consume endpoints tipo "blanks" generados por Scriptcase (PHP). Estos endpoints realizan operaciones CRUD sobre MySQL y devuelven JSON.
 - Para evitar que el cliente espere por operaciones lentas (envío de WhatsApp/correos), los blanks usan un patrón que envía la respuesta al cliente primero y luego continúa la ejecución del envío de notificaciones en segundo plano (`ra_json_response_then_continue()` + `fastcgi_finish_request()` cuando está disponible).
 - La integración con servicios externos (p. ej. Wasender API para WhatsApp) se realiza mediante llamadas HTTP desde PHP con timeouts y manejo de errores; los resultados se registran en tablas de notificaciones para trazabilidad.
-- El uso de IA se aplica en tareas de normalización/procesamiento de documentos (p. ej. análisis y extracción de datos con modelos de lenguaje). La recomendación es dejar la lógica de IA en servicios desacoplados (pueden ser funciones serverless o microservicios) y exponer resultados a través de la API para mantener el backend principal simple y estable.
-
-Si quieres que agregue el logo desde tu repo `Nexus-app-android-flutter`, dime si prefieres una animación Lottie (JSON) o una imagen PNG, y lo preparo.
+- El uso de IA se aplica en tareas de normalización y procesamiento de documentos, por ejemplo análisis y extracción de datos con modelos de lenguaje. Esta lógica se mantiene desacoplada del núcleo transaccional y se expone a través de la API para conservar un backend principal simple y estable.
 

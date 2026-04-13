@@ -17,6 +17,20 @@ La base de datos es el punto de integración entre la app Flutter, los endpoints
 - `runway_access_alter_v7_plain.sql`: variante de migración v7 pensada para entornos donde conviene ejecutar SQL más directo o sin dependencias adicionales.
 - Scripts por tabla como `ra_packages.sql`, `ra_visitors.sql`, `ra_internal_alerts.sql`, `ra_package_notifications.sql`, etc.: referencia granular o apoyo para reconstrucción puntual de entidades.
 
+## Exclusiones del repositorio
+
+Los dumps operativos que contienen evidencias, firmas o documentos capturados no se versionan en Git. Esto reduce el tamaño del repositorio y evita publicar información operativa sensible.
+
+Entre las exclusiones principales están los exports de tablas como:
+
+- `ra_visitor_documents.sql`
+- `ra_package_evidence.sql`
+- `ra_collection_evidence.sql`
+- `ra_package_delivery.sql`
+- `ra_collection_delivery.sql`
+
+Si esos archivos se necesitan para respaldo o migración puntual, deben resguardarse fuera del repositorio y manejarse como artefactos internos.
+
 ## Instalación en una base nueva
 
 Orden recomendado para un entorno limpio:

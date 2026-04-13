@@ -28,5 +28,3 @@ flutter:
   assets:
     - assets/lottie/runway_logo.json
     - assets/lottie/Loading34.json
-    - assets/images/runway_logo_160.png
-    - assets/images/runway_logo_48.png

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
-import '../../../shared/widgets/app_logo.dart';
+import '../../../shared/widgets/runway_logo_lottie.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key, required this.onFinished});
@@ -44,8 +44,20 @@ class _SplashViewState extends State<SplashView> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(height: 6),
-                Center(child: AppLogo(width: 110, height: 110)),
+                Container(
+                  width: 148,
+                  height: 148,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.04),
+                    borderRadius: BorderRadius.circular(36),
+                    border: Border.all(
+                      color: Colors.white.withValues(alpha: 0.08),
+                    ),
+                  ),
+                  child: const Center(
+                    child: RunwayLogoLottie(width: 110, height: 110),
+                  ),
+                ),
                 const SizedBox(height: 24),
                 Text(
                   'Control Entradas DRT',

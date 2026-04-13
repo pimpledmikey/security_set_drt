@@ -12,7 +12,7 @@ import '../../../shared/widgets/app_feedback.dart';
 import '../../../shared/widgets/empty_state_card.dart';
 import '../../../shared/widgets/loading_overlay.dart';
 import '../../../shared/widgets/primary_camera_button.dart';
-import '../../../shared/widgets/app_logo.dart';
+import '../../../shared/widgets/runway_logo_lottie.dart';
 import '../../collections/data/collection_active_service.dart';
 import '../../collections/data/collection_deliver_service.dart';
 import '../../collections/data/collection_receive_service.dart';
@@ -1019,7 +1019,7 @@ class _GuardHomeViewState extends State<GuardHomeView>
         titleSpacing: 18,
         title: Row(
           children: [
-            AppLogo(width: 60, height: 60),
+            const RunwayLogoLottie(width: 60, height: 60),
             const SizedBox(width: 12),
             Expanded(
               child: Column(

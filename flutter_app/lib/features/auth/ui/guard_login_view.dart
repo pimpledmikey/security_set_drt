@@ -8,7 +8,7 @@ import '../../../core/storage/session_store.dart';
 import '../../home/ui/guard_home_view.dart';
 import '../data/auth_service.dart';
 import '../../../shared/widgets/loading_overlay.dart';
-import '../../../shared/widgets/app_logo.dart';
+import '../../../shared/widgets/runway_logo_lottie.dart';
 
 class GuardLoginView extends StatefulWidget {
   const GuardLoginView({super.key, required this.cameras});
@@ -69,7 +69,9 @@ class _GuardLoginViewState extends State<GuardLoginView> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Center(child: AppLogo(width: 110, height: 110)),
+                    const Center(
+                      child: RunwayLogoLottie(width: 110, height: 110),
+                    ),
                     const SizedBox(height: 24),
                     Text(
                       'Control Entradas DRT',
