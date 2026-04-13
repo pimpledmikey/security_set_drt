@@ -45,7 +45,7 @@ class _SplashViewState extends State<SplashView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 6),
-                const Center(child: AppLogo(width: 110, height: 110)),
+                Center(child: AppLogo(width: 110, height: 110)),
                 const SizedBox(height: 24),
                 Text(
                   'Control Entradas DRT',

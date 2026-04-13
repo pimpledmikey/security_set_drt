@@ -69,7 +69,7 @@ class _GuardLoginViewState extends State<GuardLoginView> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    const Center(child: AppLogo(width: 110, height: 110)),
+                    Center(child: AppLogo(width: 110, height: 110)),
                     const SizedBox(height: 24),
                     Text(
                       'Control Entradas DRT',

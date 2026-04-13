@@ -1019,7 +1019,7 @@ class _GuardHomeViewState extends State<GuardHomeView>
         titleSpacing: 18,
         title: Row(
           children: [
-            const AppLogo(width: 60, height: 60),
+            AppLogo(width: 60, height: 60),
             const SizedBox(width: 12),
             Expanded(
               child: Column(
