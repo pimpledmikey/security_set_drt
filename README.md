@@ -70,8 +70,30 @@ Si quieres contribuir:
 
 Miguel Avila Requena — perfil: https://github.com/pimpledmikey
 
-Gracias por revisar el proyecto. Si quieres, puedo:
+Gracias por revisar el proyecto.
 
-- Añadir un CI básico para `flutter analyze` y `flutter test`.
-- Preparar un script de despliegue para el backend.
+Siguientes opciones (puedo implementarlas si lo deseas):
+
+- **Agregar un logo profesional:** puedo replicar el estilo y tamaño del logo usado en https://github.com/pimpledmikey/Nexus-app-android-flutter y añadir una versión Lottie/PNG en `flutter_app/assets/` para que la app muestre un logo coherente en splash y encabezados.
+
+## Base de datos y logs
+
+Se recomienda mantener los scripts SQL dentro de `database/` y conservar la estructura de tablas de auditoría y logs (p. ej. `ra_internal_alerts`). Mantener la base de datos versionada permite:
+
+- Restaurar estados en despliegues.
+- Auditar eventos importantes (entradas, notificaciones, errores).
+- Facilitar migraciones controladas (ALTERs con versiones).
+
+Si prefieres, puedo mantener los scripts tal cual y añadir un breve README en `database/` con instrucciones de import y backup.
+
+## Integración: Flutter ↔ Scriptcase ↔ IA
+
+Breve explicación técnica de la integración actual:
+
+- La app Flutter actúa como cliente móvil y consume endpoints tipo "blanks" generados por Scriptcase (PHP). Estos endpoints realizan operaciones CRUD sobre MySQL y devuelven JSON.
+- Para evitar que el cliente espere por operaciones lentas (envío de WhatsApp/correos), los blanks usan un patrón que envía la respuesta al cliente primero y luego continúa la ejecución del envío de notificaciones en segundo plano (`ra_json_response_then_continue()` + `fastcgi_finish_request()` cuando está disponible).
+- La integración con servicios externos (p. ej. Wasender API para WhatsApp) se realiza mediante llamadas HTTP desde PHP con timeouts y manejo de errores; los resultados se registran en tablas de notificaciones para trazabilidad.
+- El uso de IA se aplica en tareas de normalización/procesamiento de documentos (p. ej. análisis y extracción de datos con modelos de lenguaje). La recomendación es dejar la lógica de IA en servicios desacoplados (pueden ser funciones serverless o microservicios) y exponer resultados a través de la API para mantener el backend principal simple y estable.
+
+Si quieres que agregue el logo desde tu repo `Nexus-app-android-flutter`, dime si prefieres una animación Lottie (JSON) o una imagen PNG, y lo preparo.
 
