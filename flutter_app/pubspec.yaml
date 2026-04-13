@@ -1,0 +1,32 @@
+name: runway_access
+description: App Flutter para control de visitantes RUNWAY Access.
+publish_to: "none"
+version: 0.1.0+1
+
+environment:
+  sdk: ">=3.5.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  camera: ^0.11.0+2
+  dio: ^5.7.0
+  flutter_secure_storage: ^9.2.2
+  google_mlkit_text_recognition: ^0.14.0
+  intl: ^0.20.2
+  lottie: ^3.1.2
+  provider: ^6.1.2
+  shared_preferences: ^2.3.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/lottie/runway_logo.json
+    - assets/lottie/Loading34.json
+    - assets/images/runway_logo_160.png
+    - assets/images/runway_logo_48.png
